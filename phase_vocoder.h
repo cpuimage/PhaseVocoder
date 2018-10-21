@@ -38,7 +38,7 @@ typedef struct {
 
 typedef struct {
     int window_size;
-    float factor, position, *phases; //TODO possibly move from double to higher-precision format, since we only need values in [0,1]?
+    float factor, position, *phases;
     polar *last_frame;
 } stft_stretch_state;
 

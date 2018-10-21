@@ -45,14 +45,6 @@ cartesian unpolarize(polar p) {
 }
 
 /*
-  Wrap a phase to within PI and -PI
-*/
-
-float phase_modulo(float p) {
-    p = p - (signbit(p) ? -1 : 1) * floorf(fabsf(p / 2 * PI)) * 2 * PI;
-}
-
-/*
   Initialize an stft_forward_state
 */
 stft_forward_state *stft_forward_init(int window_size, float *initial_window) {
@@ -155,7 +147,7 @@ stft_backward_state *stft_backward_init(int window_size, float *initial_window) 
 float *stft_backward_feed(stft_backward_state *state, cartesian *next) {
     float *result = (float *) malloc(state->window_size * sizeof(float));
 
-    //Remember a couple common values for this execution (TODO move to *state?)
+    //Remember a couple common values for this execution
     int n = state->window_size;
 
     //Transform this window.

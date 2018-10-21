@@ -172,6 +172,9 @@ int main(int argc, char *argv[]) {
                 }
                 free(frame);
             }
+            stft_forward_free(forward);
+            stft_backward_free(backward);
+            stft_stretch_free(stretch);
             double time_interval = calcElapsed(startTime, now());
 
             wavWrite_f32(out_file, data_out, sampleRate, (uint32_t) nSampleOut);
